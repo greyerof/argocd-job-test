@@ -24,7 +24,7 @@ spec:
         - echo hola && sleep 5
         image: registry.redhat.io/openshift4/ose-cli:latest
         imagePullPolicy: Always
-        name: create-cluster-init-bundle
+        name: hi-there-container
       dnsPolicy: ClusterFirst
       restartPolicy: Never
       terminationGracePeriodSeconds: 30

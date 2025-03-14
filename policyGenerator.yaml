@@ -1,0 +1,27 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: policy-test
+placementBindingDefaults:
+  name: binding-policy-test-hub
+policyDefaults:
+  namespace: policies
+  policySets:
+    - test-hub
+  remediationAction: enforce
+  severity: medium
+policies:
+# ACS Policies - start
+- name: test-policy-job
+  manifests:
+    - path: test/job.yaml
+# ACS Policies - end
+policySets:
+  - description: Test policy-set for hubs via argocd.
+    name: test-hub
+    placement:
+      placementPath: input/hub-placement.yaml
+  # - description: Test policy-set for spoke clusters via argocd.
+  #   name: test-clusters
+  #   placement:
+  #     placementPath: input/clusters-placement.yaml
